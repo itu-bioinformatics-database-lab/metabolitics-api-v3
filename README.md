@@ -1,11 +1,11 @@
-# metabolitics-api-v2
+# metabolitics-api-v3
 This is the updated version of Metabolitics API.
 
 ## Developing on Linux
 
-1. Clone **metabolitics-api-v2** repository. Checkout to your branch.
+1. Clone **metabolitics-api-v3** repository. Checkout to your branch.
 
-    `https://github.com/itu-bioinformatics-database-lab/metabolitics-api-v2.git`
+    `https://github.com/itu-bioinformatics-database-lab/metabolitics-api-v3.git`
 
 2. Install Anaconda. Create a Conda environment.
 
@@ -49,12 +49,12 @@ Developing Metabolitics API inside a Docker container built from Dockerfile ensu
 1. Install and configure Docker for your operating system.
 2. Install Visual Studio Code.
 3. Install the Dev Containers extension from Visual Studio Code Extensions.
-4. Clone **metabolitics-api-v2** Git repository by running the below command in a terminal.
+4. Clone **metabolitics-api-v3** Git repository by running the below command in a terminal.
 
-    `git clone https://github.com/itu-bioinformatics-database-lab/metabolitics-api-v2.git`
+    `git clone https://github.com/itu-bioinformatics-database-lab/metabolitics-api-v3.git`
 
 5. Open Visual Studio Code and run **Dev Containers: Open Folder in Container...** command from **View -> Command Palette**.
-6. Select **metabolitics-api-v2** repository.
+6. Select **metabolitics-api-v3** repository.
 7. Select **From 'Dockerfile'** from **Add Dev Container Configuration Files** dialog.
 8. Don't select any features and click **Ok**.
 9. Wait for the container to install.
@@ -94,7 +94,7 @@ Developing Metabolitics API inside a Docker container built from Dockerfile ensu
 
     `docker network connect metabolitics redis`
 
-18. To run **metabolitics-api-v2**, run the below command under **src** directory and open **localhost:5000**.
+18. To run **metabolitics-api-v3**, run the below command under **src** directory and open **localhost:5000**.
 
     `gunicorn --bind 0.0.0.0:5000 --workers=2 app:app --reload`
 
