@@ -40,7 +40,7 @@ def excel():
     return jsonify(processed_data)
 
 def enhance_synonyms(metabolites):
-    with open('../datasets/assets/synonyms.json') as f:
+    with open('../datasets/assets/new-synonym-mapping.json') as f:
         synonyms = json.load(f, object_pairs_hook=OrderedDict)
     with open('../datasets/assets/refmet_recon3d.json') as f:
         refmet_recon3d = json.load(f, object_pairs_hook=OrderedDict)
@@ -63,7 +63,7 @@ def enhance_synonyms(metabolites):
                     synonyms.update({met : rec_id})
     except Exception as e:
         print(e)
-    with open('../datasets/assets/synonyms.json', 'w') as f:
+    with open('../datasets/assets/new-synonym-mapping.json', 'w') as f:
         json.dump(synonyms, f, indent=4)
 
 def metabolc(data):
@@ -84,7 +84,7 @@ def metabolc(data):
         mapping_data1= json.load(f)
         mapping_data1 = mapping_data1["metabolites"]
 
-    with open('../datasets/assets/synonyms.json') as f:
+    with open('../datasets/assets/new-synonym-mapping.json') as f:
         mapping_data2= json.load(f)
 
 
@@ -317,7 +317,7 @@ def mwlab_mapper():
             mapping_data1 = json.load(f)
             mapping_data1 = mapping_data1["metabolites"]
 
-        with open('../datasets/assets/synonyms.json') as f:
+        with open('../datasets/assets/new-synonym-mapping.json') as f:
             mapping_data2 = json.load(f)
 
         local = mwtabReader(name)
