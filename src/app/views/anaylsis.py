@@ -1000,7 +1000,7 @@ def checkMapped(data):
             mapping_data1 = json.load(f)
             mapping_data1 = mapping_data1["metabolites"]
 
-        with open('../datasets/assets/synonyms.json') as f:
+        with open('../datasets/assets/new-synonym-mapping.json') as f:
             mapping_data2 = json.load(f)
 
         for case in data['analysis'].keys():
