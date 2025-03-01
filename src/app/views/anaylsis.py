@@ -1050,3 +1050,28 @@ def get_model_scores():
             except Exception as e:
                 print(e)
     return jsonify(scores)
+
+@app.route('/analysis/delete_analysis', methods=['POST'])
+@jwt_required()
+def delete_analysis():
+    try:
+        data = request.get_json()
+        analysis_ids = data.get('analysis_ids', [])
+        user_id = current_identity.id
+        analyses_to_delete = Analysis.query.filter(
+            Analysis.id.in_(analysis_ids), Analysis.owner_user_id == user_id
+        ).all()
+
+        if not analyses_to_delete:
+            return jsonify({"error": "No matching analyses found"}), 404
+
+        for analysis in analyses_to_delete:
+            db.session.delete(analysis)
+
+        db.session.commit()
+
+        return jsonify({"message": "Selected analyses deleted successfully."}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
