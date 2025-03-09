@@ -1054,7 +1054,9 @@ def get_model_scores():
 @app.route('/analysis/delete_analysis', methods=['POST'])
 @jwt_required()
 def delete_analysis():
+    print("Received request method:", request.method)  # Debug log
     try:
+        
         data = request.get_json()
         analysis_ids = data.get('analysis_ids', [])
         user_id = current_identity.id
