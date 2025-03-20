@@ -1051,7 +1051,7 @@ def get_model_scores():
                 print(e)
     return jsonify(scores)
 
-@app.route('/analysis/delete_analysis', methods=['POST'])
+@app.route('/delete_analysis', methods=['POST'])
 @jwt_required()
 def delete_analysis():
     print("Received request method:", request.method)  # Debug log
